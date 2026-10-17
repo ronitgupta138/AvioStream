@@ -1,0 +1,39 @@
+{
+  "models": {
+    "v1.0.0": {
+      "version": "v1.0.0",
+      "stage": "Production",
+      "model_type": "LightGBM_C_MAPSS_Regressor",
+      "created_at_utc": "2026-10-07T11:30:40Z",
+      "hyperparameters": {
+        "n_estimators": 450,
+        "learning_rate": 0.025,
+        "cap": 125
+      },
+      "metrics": {
+        "rmse": 14.789531161866632,
+        "mae": 11.314629706334069,
+        "nasa_score": 296.7666149303802,
+        "mean_error": -0.449529387650926,
+        "max_late_error": 30.703357126241997,
+        "max_early_error": 41.67601498579222
+      },
+      "artifact_path": "models/stratasense_rul.onnx"
+    }
+  },
+  "production_version": "v1.0.0",
+  "audit_trail": [
+    {
+      "timestamp": "2026-10-07T11:30:40Z",
+      "version": "v1.0.0",
+      "action": "REGISTERED",
+      "details": "Registered to Staging"
+    },
+    {
+      "timestamp": "2026-10-07T11:30:40Z",
+      "version": "v1.0.0",
+      "action": "PROMOTED",
+      "details": "Promoted to Production with RMSE 14.79"
+    }
+  ]
+}

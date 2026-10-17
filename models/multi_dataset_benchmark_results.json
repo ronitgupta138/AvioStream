@@ -1,0 +1,38 @@
+[
+  {
+    "subset": "FD001",
+    "train_units": 100,
+    "test_units": 100,
+    "rmse": 16.97,
+    "mae": 12.33,
+    "nasa_score": 557.79,
+    "duration_sec": 5.4
+  },
+  {
+    "subset": "FD002",
+    "train_units": 260,
+    "test_units": 259,
+    "rmse": 27.33,
+    "mae": 18.04,
+    "nasa_score": 9746.05,
+    "duration_sec": 9.5
+  },
+  {
+    "subset": "FD003",
+    "train_units": 100,
+    "test_units": 100,
+    "rmse": 15.93,
+    "mae": 11.7,
+    "nasa_score": 550.62,
+    "duration_sec": 5.3
+  },
+  {
+    "subset": "FD004",
+    "train_units": 249,
+    "test_units": 248,
+    "rmse": 28.38,
+    "mae": 20.66,
+    "nasa_score": 6007.57,
+    "duration_sec": 14.6
+  }
+]
