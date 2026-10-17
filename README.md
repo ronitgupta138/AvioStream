@@ -24,7 +24,7 @@
 ---
 
 **Author:** Ronit Gupta  
-*Netaji Subhash Engineering College (Batch 2027)*
+*Systems & High-Concurrency Backend Engineer*
 
 </div>
 
