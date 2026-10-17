@@ -1,0 +1,34 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+env/
+venv/
+
+# Node / JS
+node_modules/
+dist/
+build/
+.next/
+
+# Java / Maven / Gradle
+target/
+*.class
+.gradle/
+
+# Temporary / Large raw exports
+*.tmp
+*.log
+*.bak
+.~lock.*#
