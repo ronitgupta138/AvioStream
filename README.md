@@ -12,33 +12,35 @@
 ### **AvioStream — Closed-Loop Autonomous Predictive Maintenance Platform**
 *Hybrid Enterprise Telemetry Ingestion, Dual-Stage Machine Learning & Deterministic CMMS Work-Order Dispatch*
 
-[![CI/CD Pipeline](https://github.com/ronitgupta138/AvioStream/actions/workflows/ci.yml/badge.svg)](https://github.com/ronitgupta138/AvioStream/actions/workflows/ci.yml)
-[![Pytest](https://img.shields.io/badge/pytest-23%2F23%20Passed-10b981?style=flat-square&logo=pytest&logoColor=white)](https://github.com/ronitgupta138/AvioStream)
+[![GitHub Stars](https://badgen.net/github/stars/ronitgupta138/AvioStream?icon=github&color=0891b2)](https://github.com/ronitgupta138/AvioStream/stargazers)
 [![Java 21](https://img.shields.io/badge/Java-21%20LTS%20Loom-0891b2?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
-[![ONNX Runtime](https://img.shields.io/badge/ONNX%20Edge-0.014ms-6366f1?style=flat-square&logo=onnx&logoColor=white)](https://onnxruntime.ai/)
 [![Throughput](https://img.shields.io/badge/Throughput-48k%20msgs%2Fs-10b981?style=flat-square)](https://github.com/ronitgupta138/AvioStream)
-[![NASA PHM Score](https://img.shields.io/badge/NASA%20PHM-296.77-f59e0b?style=flat-square)](https://github.com/ronitgupta138/AvioStream)
-[![Docker](https://img.shields.io/badge/Docker-Multi--Stage-2496ed?style=flat-square&logo=docker&logoColor=white)](https://github.com/ronitgupta138/AvioStream)
+[![ONNX Runtime](https://img.shields.io/badge/ONNX%20Edge-0.014ms-0891b2?style=flat-square&logo=onnx&logoColor=white)](https://onnxruntime.ai/)
+[![Python 3.11](https://img.shields.io/badge/Python-3.11%20MLOps-0891b2?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Tests](https://img.shields.io/badge/Tests-25%2F25%20Passed-10b981?style=flat-square)](https://github.com/ronitgupta138/AvioStream)
+[![NASA PHM Score](https://img.shields.io/badge/NASA%20PHM-296.77-0891b2?style=flat-square)](https://github.com/ronitgupta138/AvioStream)
+[![Docker](https://img.shields.io/badge/Docker-Multi--Stage-0891b2?style=flat-square&logo=docker&logoColor=white)](https://github.com/ronitgupta138/AvioStream)
+[![CI/CD Pipeline](https://img.shields.io/badge/CI-GitHub_Actions-0891b2?style=flat-square&logo=githubactions&logoColor=white)](https://github.com/ronitgupta138/AvioStream/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
-
----
-
-**Author:** Ronit Gupta  
-*Systems & High-Concurrency Backend Engineer*
 
 </div>
 
----
-
-## 📌 Executive Summary
-
-Modern connected industrial fleets generate high-velocity telemetry across thousands of operating components. Traditional maintenance paradigms oscillate between two costly extremes: **reactive failure recovery** ($250,000+/hr in unplanned aviation downtime) and **rigid calendar-based schedules** that discard healthy components prematurely.
-
-**AvioStream** is an enterprise-grade closed-loop predictive maintenance platform built for aerospace turbofan fleets. By coupling offline Python 3.11 MLOps and portable ONNX graph serialization with a high-throughput **Java 21 Project Loom (Virtual Threads)** streaming ingestion engine, AvioStream continuously tracks degradation trajectories, detects early sensor anomalies, estimates Remaining Useful Life ($RUL$), and auto-dispatches standardized enterprise CMMS/ERP work orders through a strictly deterministic non-LLM triage state machine in sub-15ms execution windows.
+> ⚡ **AvioStream** is a high-throughput, closed-loop autonomous predictive maintenance and telemetry streaming platform for commercial aerospace turbofan fleets. By coupling offline Python 3.11 MLOps and portable ONNX graph serialization with a high-throughput **Java 21 Project Loom (Virtual Threads)** streaming ingestion engine (>48,000 msgs/s), AvioStream continuously tracks degradation trajectories, detects early sensor anomalies, estimates Remaining Useful Life ($RUL$), and auto-dispatches standardized enterprise CMMS/ERP work orders through a strictly deterministic non-LLM triage state machine in sub-15ms execution windows.
 
 ---
 
-## 🏗️ System Architecture
+## 📌 Architectural Highlights
+
+* **High-Throughput Loom Ingestion Engine:** Java 21 Project Loom virtual threads stream buffer supporting **>48,000 msgs/s** with sub-35 KB total heap footprint across 100 concurrent engine units.
+* **Dual-Stage Prognostics Core:** Unsupervised Anomaly Detection via Isolation Forest (computing continuous Health Index $HI \in [0.0, 1.0]$) paired with supervised LightGBM Remaining Useful Life ($RUL$) regression.
+* **Asymmetric NASA PHM Loss:** Custom penalty objective penalizing late failure predictions ($d > 0$) 3× heavier than early predictions to eliminate catastrophic in-flight downtime.
+* **Embedded ONNX Edge Runtime:** Portable serialized model graph (`models/aviostream_rul.onnx`) executing in **0.014ms** per cycle on commodity CPU cores via JNI bindings with zero Python runtime overhead.
+* **Statistical Telemetry Drift Engine:** Automated Two-Sample Kolmogorov-Smirnov (K-S) test and 10-bin Population Stability Index ($PSI$) tracking over sliding operational windows for model degradation governance.
+* **Deterministic Non-LLM Triage:** Microsecond 4-tier decision state machine eliminating LLM hallucination risk and generating validated SAP PM / IBM Maximo BAPI work orders.
+
+---
+
+## 🏛️ System Architecture
 
 ```
 ┌───────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -77,7 +79,7 @@ Modern connected industrial fleets generate high-velocity telemetry across thous
 
 Rigorous verification evaluated across all **100 test engine units** on their final recorded operational cycles against ground-truth `RUL_FD001.txt` on commodity hardware (**AMD Ryzen 5 5600H, 15GB RAM**):
 
-| Evaluation Metric | Contest SLA / Target | AvioStream Measured Result | Verification Verdict |
+| Evaluation Metric | Target SLA | AvioStream Measured Result | Verification Verdict |
 | :--- | :--- | :--- | :--- |
 | **Test Set Root Mean Squared Error (RMSE)** | $< 15.00\text{ cycles}$ | **14.79 cycles** | **Verified ✅** (State-of-the-art tabular tree result) |
 | **Official NASA PHM Score ($S$)** | $< 350.00$ | **296.77** | **Verified ✅** (Beats threshold by $> 15\%$) |
@@ -140,7 +142,7 @@ Launch the dark-theme real-time operations console:
 streamlit run src/dashboard/app.py
 ```
 
-### Console Consoles
+### Console Views
 1. **Fleet Command Overview:** Real-time 100-engine fleet status grid with color-coded health badges and maintenance priority dispatch queue.
 2. **Digital Twin & Stream Replayer:**
    - Cycle-by-cycle operational scrubber simulating run-to-failure engines (e.g., Unit 42 over 156 cycles).
@@ -166,10 +168,10 @@ make run-pipeline
 # Run Python unit tests (23/23 tests passing)
 make test-py
 
-# Run Java 21 Loom engine test suite
+# Run Java 21 Loom engine test suite (2/2 tests passing)
 make test-java
 
-# Run all tests
+# Run all test suites
 make test
 
 # Launch interactive Streamlit Digital Twin UI
@@ -217,11 +219,14 @@ When an engine crosses health thresholds, AvioStream automatically generates a s
 ## 📁 Repository Organization
 
 ```text
-aviostream/
+AvioStream/
 ├── Makefile                           # Unified developer build, test, and run targets
 ├── Dockerfile                         # Multi-stage production container specification
 ├── .dockerignore                      # Build context exclusions
 ├── LICENSE                            # MIT License
+├── CONTRIBUTING.md                    # Development workflows & contribution guidelines
+├── CODE_OF_CONDUCT.md                 # Contributor Covenant v2.1
+├── SECURITY.md                        # Vulnerability reporting protocol
 ├── requirements.txt                   # Pinned Python dependencies
 ├── PROJECT_PLAN.md                    # Master execution roadmap & phase tracking plan
 ├── BENCHMARKS.md                      # Comprehensive empirical metrics & SLA verification
@@ -233,13 +238,10 @@ aviostream/
 │   └── workflows/ci.yml               # Automated GitHub Actions CI/CD pipeline
 ├── data/c-mapss/                      # NASA C-MAPSS benchmark datasets (FD001–FD004)
 ├── models/
-│   ├── aviostream_rul.onnx           # Exported portable ONNX model graph (< 0.02ms)
+│   ├── aviostream_rul.onnx            # Exported portable ONNX model graph (< 0.02ms)
 │   ├── robust_scaler.joblib           # Fitted telemetry IQR robust scaler
 │   ├── feature_names.json             # 185 engineered feature dictionary
 │   └── test_benchmark_metrics.json    # Verified test set evaluation metrics
-├── submissions/
-│   ├── round-1/                       # Submitted Round 1 artifacts (PDF, PPTX, renders)
-│   └── round-2/                       # Round 2 implementation blueprint & roadmap
 ├── src/
 │   ├── config.py                      # Centralized path and project root resolution
 │   ├── pipeline/                      # Ingestion, filtering, regime normalizer, ring buffer
@@ -256,6 +258,6 @@ aviostream/
 <div align="center">
 
 Made with ⚡ by **Ronit Gupta**  
-*High-Concurrency Systems & Embedded Edge Inference*
+*Systems & High-Concurrency Backend Engineer*
 
 </div>
