@@ -5,12 +5,12 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.stratasense</groupId>
-    <artifactId>stratasense-engine</artifactId>
+    <groupId>io.aviostream</groupId>
+    <artifactId>aviostream-engine</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>StrataSense Industrial Telemetry Engine</name>
+    <name>AvioStream Industrial Telemetry Engine</name>
     <description>Java 21 Project Loom high-throughput ingestion and embedded ONNX predictive maintenance engine</description>
 
     <properties>

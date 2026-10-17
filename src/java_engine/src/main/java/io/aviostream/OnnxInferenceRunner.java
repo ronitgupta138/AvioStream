@@ -1,4 +1,4 @@
-package io.stratasense;
+package io.aviostream;
 
 import ai.onnxruntime.OnnxTensor;
 import ai.onnxruntime.OrtEnvironment;

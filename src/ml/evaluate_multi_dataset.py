@@ -1,6 +1,6 @@
 """Multi-Dataset Cross-Benchmark Evaluator for NASA C-MAPSS (FD001–FD004).
 
-Evaluates the StrataSense prognostic engine across all 4 benchmark datasets:
+Evaluates the AvioStream prognostic engine across all 4 benchmark datasets:
   - FD001: 1 Condition, 1 Fault Mode (HPC Degradation)
   - FD002: 6 Flight Conditions, 1 Fault Mode (HPC Degradation)
   - FD003: 1 Condition, 2 Fault Modes (HPC & Fan Degradation)
@@ -31,7 +31,7 @@ def train_and_evaluate_subset(
     n_regimes: int = 6,
     fast_mode: bool = False
 ) -> Dict[str, float]:
-    """Trains and tests StrataSense pipeline on a specific C-MAPSS subset."""
+    """Trains and tests AvioStream pipeline on a specific C-MAPSS subset."""
     start_time = time.time()
     print(f"\n=======================================================")
     print(f"=== EVALUATING SUBSET: {subset_id} ===")
@@ -115,7 +115,7 @@ def run_all_benchmarks(fast_mode: bool = False) -> List[Dict]:
         json.dump(results, f, indent=2)
 
     print("\n\n=======================================================")
-    print("=== STRATASENSE MULTI-DATASET CONSOLIDATED MATRIX ===")
+    print("=== AVIOSTREAM MULTI-DATASET CONSOLIDATED MATRIX ===")
     print("=======================================================")
     df_res = pd.DataFrame(results)
     print(df_res.to_string(index=False))

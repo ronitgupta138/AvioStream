@@ -1,4 +1,4 @@
-"""Real-time cycle-by-cycle telemetry stream replay engine for the StrataSense dashboard.
+"""Real-time cycle-by-cycle telemetry stream replay engine for the AvioStream dashboard.
 
 Replays engine operational trajectories cycle-by-cycle, computing real-time
 feature vectors, ONNX RUL predictions, Health Index (HI), subsystem wear scores,
@@ -34,7 +34,7 @@ class EngineStreamReplayer:
             self.feature_names: List[str] = json.load(f)
 
         self.onnx_session = ort.InferenceSession(
-            str(models_dir / "stratasense_rul.onnx"),
+            str(models_dir / "aviostream_rul.onnx"),
             providers=["CPUExecutionProvider"]
         )
         self.onnx_input_name = self.onnx_session.get_inputs()[0].name

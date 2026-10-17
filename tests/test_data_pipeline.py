@@ -1,4 +1,4 @@
-"""Comprehensive unit test suite for StrataSense Phase 1: Data Engineering Pipeline."""
+"""Comprehensive unit test suite for AvioStream Phase 1: Data Engineering Pipeline."""
 
 import pytest
 import numpy as np

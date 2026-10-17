@@ -1,6 +1,6 @@
-# StrataSense — Master Engineering Specification & Implementation Tracker
+# AvioStream — Master Engineering Specification & Implementation Tracker
 
-**Project:** StrataSense (Closed-Loop Autonomous Predictive Maintenance Platform)  
+**Project:** AvioStream (Closed-Loop Autonomous Predictive Maintenance Platform)  
 **Author:** Ronit Gupta  
 **Target:** 100% Production-Grade, Verifiable, End-to-End Implementation  
 **Architecture:** Hybrid Enterprise IoT (Python 3.11 MLOps + Java 21 Loom Runtime + ONNX Edge Inference)  
@@ -27,7 +27,7 @@
 
 In NASA C-MAPSS FD001 (100 run-to-failure engines, single operating regime sea-level), 21 sensors are logged. Understanding their physical thermodynamic role is critical for feature engineering, SHAP interpretability, and interview defense:
 
-| Sensor ID | Physical Meaning | Units | Variance in FD001 | Action in StrataSense |
+| Sensor ID | Physical Meaning | Units | Variance in FD001 | Action in AvioStream |
 |---|---|---|---|---|
 | `s_1` | Total temperature at fan inlet ($T_2$) | °R | $\sigma = 0.0$ | **PRUNED** (Constant ambient probe) |
 | `s_2` | Total temperature at LPC outlet ($T_{24}$) | °R | $\sigma = 0.500$ | **ACTIVE** (Low-pressure compressor thermal health) |
@@ -63,7 +63,7 @@ In NASA C-MAPSS FD001 (100 run-to-failure engines, single operating regime sea-l
 - [x] **0.3** Formulate problem statement and failure mode taxonomy.
 - [x] **0.4** Download genuine NASA C-MAPSS FD001 dataset files (`train_FD001.txt`, `test_FD001.txt`, `RUL_FD001.txt`).
 - [x] **0.5** Establish data schemas, pipeline models, and benchmarks.
-- [x] **0.6** Synchronize documentation and repository (`ronitgupta138/stratasense`).
+- [x] **0.6** Synchronize documentation and repository (`ronitgupta138/aviostream`).
 
 ---
 
@@ -137,7 +137,7 @@ In NASA C-MAPSS FD001 (100 run-to-failure engines, single operating regime sea-l
   - [x] Gain-based and feature importance ranking confirming physical drivers ($s_4, s_{15}, s_3, s_{11}$).
   - [x] Implement `attribute_root_cause()` mapping sensor divergence to physical turbofan subsystems for automated work orders.
 - [x] **2.6 Portable ONNX Model Export & Python Verification** (`src/ml/export_onnx.py`)
-  - [x] Export LightGBM model to `models/stratasense_rul.onnx` (808.1 KB).
+  - [x] Export LightGBM model to `models/aviostream_rul.onnx` (808.1 KB).
   - [x] Verified graph structure via `onnx.checker.check_model()`.
   - [x] Numerical parity confirmed: max discrepancy $6.46 \times 10^{-5}$ ($< 10^{-4}$ threshold).
   - [x] Inference speed benchmark: **0.067 ms per forward pass** (Beats $< 2.0\text{ms}$ edge target by ~30x!).
@@ -217,7 +217,7 @@ In NASA C-MAPSS FD001 (100 run-to-failure engines, single operating regime sea-l
 ---
 
 ### Phase 5: Java 21 Virtual Threads (Loom) Streaming Engine
-*Preconditions:* Trained `models/stratasense_rul.onnx` present from Phase 2.
+*Preconditions:* Trained `models/aviostream_rul.onnx` present from Phase 2.
 
 - [x] **5.1 Maven Project Structure** (`src/java_engine/pom.xml`)
   - [x] Configured Java 21 compiler target (`<java.version>21</java.version>`).
@@ -275,7 +275,7 @@ In NASA C-MAPSS FD001 (100 run-to-failure engines, single operating regime sea-l
 ---
 
 ### Phase 8: Multi-Regime Generalization & Industrial Containerization (COMPLETED)
-*Objectives: Extend StrataSense across all 4 NASA C-MAPSS datasets and containerize for zero-dependency execution.*
+*Objectives: Extend AvioStream across all 4 NASA C-MAPSS datasets and containerize for zero-dependency execution.*
 
 - [x] **8.1 Multi-Dataset Ingestion** (`src/pipeline/dataset_loader.py`)
   - [x] Ingest all 4 datasets: `FD001` (1 cond, 1 fault), `FD002` (6 cond, 1 fault), `FD003` (1 cond, 2 faults), `FD004` (6 cond, 2 faults).
@@ -304,7 +304,7 @@ In NASA C-MAPSS FD001 (100 run-to-failure engines, single operating regime sea-l
 ## Directory & File Blueprint
 
 ```text
-stratasense/
+aviostream/
 ├── PROJECT_PLAN.md                    # THIS FILE: Master execution and tracking plan
 ├── README.md                          # Project overview and architecture documentation
 ├── BENCHMARKS.md                      # (Phase 7) Empirical metrics and benchmark results
@@ -315,7 +315,7 @@ stratasense/
 │       ├── test_FD001.txt             # Test trajectories (13,096 cycles)
 │       └── RUL_FD001.txt              # Test ground-truth RUL (100 units)
 ├── models/
-│   ├── stratasense_rul.onnx           # (Phase 2) Exported portable ONNX model graph
+│   ├── aviostream_rul.onnx           # (Phase 2) Exported portable ONNX model graph
 │   └── rul_lightgbm_best.joblib       # (Phase 2) Python model checkpoint
 ├── src/
 │   ├── pipeline/
@@ -341,7 +341,7 @@ stratasense/
 │   │   └── dispatch_service.py        # (Phase 4) Sub-15ms dispatch logger & audit trail
 │   ├── java_engine/                   # (Phase 5) Java 21 Loom Virtual Threads Engine
 │   │   ├── pom.xml                    # Maven configuration (onnxruntime, jackson)
-│   │   └── src/main/java/io/stratasense/
+│   │   └── src/main/java/io/aviostream/
 │   │       ├── TelemetryBuffer.java   # High-throughput Virtual Threads FIFO buffer
 │   │       ├── OnnxInferenceRunner.java # Embedded ONNX runtime JNI evaluator
 │   │       ├── TriageRuleEngine.java  # Strongly typed Java triage state machine

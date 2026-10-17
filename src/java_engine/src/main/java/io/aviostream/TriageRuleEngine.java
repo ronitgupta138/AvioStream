@@ -1,4 +1,4 @@
-package io.stratasense;
+package io.aviostream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.Instant;

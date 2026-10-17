@@ -1,6 +1,6 @@
 # System Architecture Artifacts
 
-Complete architectural schemas, dataflows, and protocol definitions for the StrataSense Predictive Maintenance Platform.
+Complete architectural schemas, dataflows, and protocol definitions for the AvioStream Predictive Maintenance Platform.
 
 ---
 
@@ -8,7 +8,7 @@ Complete architectural schemas, dataflows, and protocol definitions for the Stra
 
 ```
 +--------------------------------------------------------------------------------------------------+
-|                                     STRATASENSE ARCHITECTURE                                     |
+|                                     AVIOSTREAM ARCHITECTURE                                     |
 +--------------------------------------------------------------------------------------------------+
 |                                                                                                  |
 |   OFFLINE EXPERIMENTATION (Python 3.11)                  ONLINE EDGE INGESTION & TRIAGE (Java 21) |
@@ -57,7 +57,7 @@ Complete architectural schemas, dataflows, and protocol definitions for the Stra
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "StrataSenseMaintenanceWorkOrder",
+  "title": "AvioStreamMaintenanceWorkOrder",
   "type": "object",
   "required": [
     "work_order_id",

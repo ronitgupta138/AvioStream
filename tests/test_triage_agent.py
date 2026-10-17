@@ -1,4 +1,4 @@
-"""Comprehensive unit test suite for StrataSense Phase 4: Deterministic Triage Agent."""
+"""Comprehensive unit test suite for AvioStream Phase 4: Deterministic Triage Agent."""
 
 import json
 import pytest

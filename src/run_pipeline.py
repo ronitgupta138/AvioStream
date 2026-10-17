@@ -1,4 +1,4 @@
-"""Unified Master Pipeline CLI Runner for StrataSense.
+"""Unified Master Pipeline CLI Runner for AvioStream.
 
 Commands:
   --train           Executes full data prep + LightGBM training + ONNX export
@@ -87,7 +87,7 @@ def run_streaming_simulation():
 
 
 def main():
-    parser = argparse.ArgumentParser(description="StrataSense Master Execution CLI")
+    parser = argparse.ArgumentParser(description="AvioStream Master Execution CLI")
     parser.add_argument("--train", action="store_true", help="Train LightGBM RUL regressor")
     parser.add_argument("--export-onnx", action="store_true", help="Export model to ONNX")
     parser.add_argument("--evaluate", action="store_true", help="Evaluate test set benchmark")
@@ -99,7 +99,7 @@ def main():
 
     if len(sys.argv) == 1 or args.all:
         print("=========================================================")
-        print("         STRATASENSE MASTER VERIFICATION PIPELINE        ")
+        print("         AVIOSTREAM MASTER VERIFICATION PIPELINE        ")
         print("=========================================================")
         start_time = time.time()
         run_training()

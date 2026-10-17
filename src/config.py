@@ -1,4 +1,4 @@
-"""Centralized path and configuration resolution for StrataSense.
+"""Centralized path and configuration resolution for AvioStream.
 
 Resolves repository root dynamically across local dev, CI/CD runners, and Docker containers.
 """

@@ -1,4 +1,4 @@
-"""StrataSense Fleet Command & Autonomous Predictive Maintenance Dashboard.
+"""AvioStream Fleet Command & Autonomous Predictive Maintenance Dashboard.
 
 Interactive Streamlit interface featuring:
   1. Fleet Command Overview (100-engine health grid & KPIs)
@@ -18,7 +18,7 @@ from src.dashboard.stream_replay import EngineStreamReplayer
 
 # Configure wide page layout and high-contrast theme
 st.set_page_config(
-    page_title="StrataSense — Autonomous Fleet Maintenance",
+    page_title="AvioStream — Autonomous Fleet Maintenance",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -81,7 +81,7 @@ df_fleet, benchmark_metrics = load_benchmark_data()
 replayer = get_replayer()
 
 # Sidebar Metadata
-st.sidebar.markdown("### **StrataSense Platform**")
+st.sidebar.markdown("### **AvioStream Platform**")
 st.sidebar.markdown("**Autonomous Fleet Prognostics**")
 st.sidebar.markdown("*Ronit Gupta*")
 st.sidebar.markdown("---")
@@ -97,7 +97,7 @@ view_mode = st.sidebar.radio(
 )
 
 # Header
-st.markdown('<div class="main-header">STRATASENSE — AUTONOMOUS FLEET PREDICTIVE MAINTENANCE</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">AVIOSTREAM — AUTONOMOUS FLEET PREDICTIVE MAINTENANCE</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-header">Closed-Loop Aerospace Turbofan Telemetry Ingestion, Dual-Stage ML & Deterministic CMMS Dispatch</div>', unsafe_allow_html=True)
 
 if view_mode == "Fleet Command Overview":

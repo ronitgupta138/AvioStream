@@ -23,7 +23,7 @@ test-java:
 	cd src/java_engine && $(MVN) test -B
 
 run-dashboard:
-	@echo "===> Launching StrataSense Streamlit Operations Console..."
+	@echo "===> Launching AvioStream Streamlit Operations Console..."
 	$(STREAMLIT) run src/dashboard/app.py
 
 run-pipeline:
@@ -32,11 +32,11 @@ run-pipeline:
 
 docker-build:
 	@echo "===> Building Production Multi-Stage Container..."
-	docker build -t stratasense:latest .
+	docker build -t aviostream:latest .
 
 docker-run:
-	@echo "===> Running StrataSense Container on port 8501..."
-	docker run -d -p 8501:8501 --name stratasense-fleet stratasense:latest
+	@echo "===> Running AvioStream Container on port 8501..."
+	docker run -d -p 8501:8501 --name aviostream-fleet aviostream:latest
 
 clean:
 	@echo "===> Cleaning target directories and Python bytecode..."

@@ -1,4 +1,4 @@
-package io.stratasense;
+package io.aviostream;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

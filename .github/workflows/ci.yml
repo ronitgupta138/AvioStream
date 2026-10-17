@@ -1,4 +1,4 @@
-name: StrataSense CI/CD Pipeline
+name: AvioStream CI/CD Pipeline
 
 on:
   push:

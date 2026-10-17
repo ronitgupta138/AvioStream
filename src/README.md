@@ -1,4 +1,4 @@
-# StrataSense — Core Architecture & Source Modules
+# AvioStream — Core Architecture & Source Modules
 
 Modular pipeline, high-throughput Project Loom ingestion engine, and deterministic CMMS work-order dispatch.
 

@@ -110,7 +110,7 @@ if __name__ == "__main__":
         model_type="LightGBM_C_MAPSS_Regressor",
         hyperparameters={"n_estimators": 450, "learning_rate": 0.025, "cap": 125},
         metrics=bench_metrics,
-        artifact_path="models/stratasense_rul.onnx"
+        artifact_path="models/aviostream_rul.onnx"
     )
     promoted = manager.promote_to_production("v1.0.0", validation_rmse=bench_metrics["rmse"])
 

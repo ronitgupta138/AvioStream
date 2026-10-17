@@ -1,4 +1,4 @@
-# StrataSense — Empirical Engineering Benchmarks
+# AvioStream — Empirical Engineering Benchmarks
 
 **Enterprise Aerospace Turbofan Fleet Telemetry & Prognostics Verification**  
 **Dataset:** NASA C-MAPSS Turbofan Engine Degradation Benchmark (FD001)  
@@ -11,7 +11,7 @@
 
 Evaluated across all 100 test engine units on their final operational cycle against ground-truth `RUL_FD001.txt`:
 
-| Metric | Target SLA | StrataSense Result | Evaluation Status |
+| Metric | Target SLA | AvioStream Result | Evaluation Status |
 |---|---|---|---|
 | **Test Root Mean Squared Error (RMSE)** | $< 15.00\text{ cycles}$ | **14.79 cycles** | **PASSED** (Top-tier tabular tree benchmark) |
 | **Official NASA PHM Score ($S$)** | $< 350.00$ | **296.77** | **PASSED** (Beats threshold by $> 15\%$) |

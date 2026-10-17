@@ -1,4 +1,4 @@
-"""Comprehensive unit test suite for StrataSense Phase 2: Machine Learning Engine."""
+"""Comprehensive unit test suite for AvioStream Phase 2: Machine Learning Engine."""
 
 from pathlib import Path
 import json
@@ -49,7 +49,7 @@ class TestAnomalyDetector:
 class TestModelArtifacts:
     def test_artifacts_exist(self):
         assert (MODELS_DIR / "rul_lightgbm_best.joblib").exists()
-        assert (MODELS_DIR / "stratasense_rul.onnx").exists()
+        assert (MODELS_DIR / "aviostream_rul.onnx").exists()
         assert (MODELS_DIR / "feature_names.json").exists()
         assert (MODELS_DIR / "test_benchmark_metrics.json").exists()
 
@@ -58,7 +58,7 @@ class TestModelArtifacts:
         with open(MODELS_DIR / "feature_names.json") as f:
             features = json.load(f)
 
-        session = ort.InferenceSession(str(MODELS_DIR / "stratasense_rul.onnx"), providers=["CPUExecutionProvider"])
+        session = ort.InferenceSession(str(MODELS_DIR / "aviostream_rul.onnx"), providers=["CPUExecutionProvider"])
         input_name = session.get_inputs()[0].name
 
         X_dummy = np.random.normal(0, 1, size=(5, len(features))).astype(np.float32)

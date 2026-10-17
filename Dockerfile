@@ -1,5 +1,5 @@
 # =========================================================================
-# StrataSense — Production Multi-Stage Container Specification
+# AvioStream — Production Multi-Stage Container Specification
 # Autonomous Aerospace Fleet Predictive Maintenance Engine
 # =========================================================================
 

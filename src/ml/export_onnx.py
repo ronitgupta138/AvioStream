@@ -19,7 +19,7 @@ from src.config import MODELS_DIR
 
 def export_lightgbm_to_onnx(
     models_dir: Path = MODELS_DIR,
-    onnx_filename: str = "stratasense_rul.onnx"
+    onnx_filename: str = "aviostream_rul.onnx"
 ) -> Path:
     """Exports trained LightGBM model to standard ONNX binary."""
     model = joblib.load(models_dir / "rul_lightgbm_best.joblib")

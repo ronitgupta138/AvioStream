@@ -18,7 +18,7 @@
         "max_late_error": 30.703357126241997,
         "max_early_error": 41.67601498579222
       },
-      "artifact_path": "models/stratasense_rul.onnx"
+      "artifact_path": "models/aviostream_rul.onnx"
     }
   },
   "production_version": "v1.0.0",
