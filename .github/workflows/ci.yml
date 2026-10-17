@@ -1,0 +1,85 @@
+name: StrataSense CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  python-test-suite:
+    name: Python Unit Tests & Prognostic Parity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Pytest Test Suite
+        env:
+          PYTHONPATH: .
+          PROJECT_ROOT: ${{ github.workspace }}
+        run: |
+          pytest tests/ -v --durations=10
+
+  java-loom-engine:
+    name: Java 21 Project Loom & ONNX Runtime JNI Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "21"
+          cache: "maven"
+
+      - name: Build & Test Java 21 Loom Streaming Engine
+        run: |
+          cd src/java_engine
+          mvn clean test -B
+
+  benchmark-governance:
+    name: Benchmark SLA Verification & Regression Guard
+    needs: [python-test-suite, java-loom-engine]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Verify Prognostic Metrics Against SLAs
+        env:
+          PYTHONPATH: .
+          PROJECT_ROOT: ${{ github.workspace }}
+        run: |
+          python -c "
+          import json
+          with open('models/test_benchmark_metrics.json') as f:
+              m = json.load(f)
+          print('Loaded metrics:', m)
+          assert m['rmse'] <= 15.00, f'RMSE regression! Expected <= 15.00, got {m[\"rmse\"]}'
+          assert m['nasa_score'] <= 350.00, f'NASA PHM Score regression! Expected <= 350.00, got {m[\"nasa_score\"]}'
+          print('SLA Verification: ALL PROGNOSTIC THRESHOLDS SATISFIED!')
+          "

@@ -1,0 +1,15 @@
+.git
+.gitignore
+.venv
+venv
+env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+mlruns
+.DS_Store
+*.log
+src/java_engine/target
+submissions/round-1/slide_preview*
