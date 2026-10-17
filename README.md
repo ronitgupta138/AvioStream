@@ -12,13 +12,13 @@
 ### **AvioStream — Closed-Loop Autonomous Predictive Maintenance Platform**
 *Hybrid Enterprise Telemetry Ingestion, Dual-Stage Machine Learning & Deterministic CMMS Work-Order Dispatch*
 
-[![CI/CD Pipeline](https://github.com/ronitgupta138/aviostream/actions/workflows/ci.yml/badge.svg)](https://github.com/ronitgupta138/aviostream/actions/workflows/ci.yml)
-[![Pytest](https://img.shields.io/badge/pytest-23%2F23%20Passed-10b981?style=flat-square&logo=pytest&logoColor=white)](https://github.com/ronitgupta138/aviostream)
+[![CI/CD Pipeline](https://github.com/ronitgupta138/AvioStream/actions/workflows/ci.yml/badge.svg)](https://github.com/ronitgupta138/AvioStream/actions/workflows/ci.yml)
+[![Pytest](https://img.shields.io/badge/pytest-23%2F23%20Passed-10b981?style=flat-square&logo=pytest&logoColor=white)](https://github.com/ronitgupta138/AvioStream)
 [![Java 21](https://img.shields.io/badge/Java-21%20LTS%20Loom-0891b2?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![ONNX Runtime](https://img.shields.io/badge/ONNX%20Edge-0.014ms-6366f1?style=flat-square&logo=onnx&logoColor=white)](https://onnxruntime.ai/)
-[![Throughput](https://img.shields.io/badge/Throughput-48k%20msgs%2Fs-10b981?style=flat-square)](https://github.com/ronitgupta138/aviostream)
-[![NASA PHM Score](https://img.shields.io/badge/NASA%20PHM-296.77-f59e0b?style=flat-square)](https://github.com/ronitgupta138/aviostream)
-[![Docker](https://img.shields.io/badge/Docker-Multi--Stage-2496ed?style=flat-square&logo=docker&logoColor=white)](https://github.com/ronitgupta138/aviostream)
+[![Throughput](https://img.shields.io/badge/Throughput-48k%20msgs%2Fs-10b981?style=flat-square)](https://github.com/ronitgupta138/AvioStream)
+[![NASA PHM Score](https://img.shields.io/badge/NASA%20PHM-296.77-f59e0b?style=flat-square)](https://github.com/ronitgupta138/AvioStream)
+[![Docker](https://img.shields.io/badge/Docker-Multi--Stage-2496ed?style=flat-square&logo=docker&logoColor=white)](https://github.com/ronitgupta138/AvioStream)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
 
 ---
@@ -157,8 +157,8 @@ streamlit run src/dashboard/app.py
 
 ```bash
 # Clone the repository
-git clone https://github.com/ronitgupta138/aviostream.git
-cd aviostream
+git clone https://github.com/ronitgupta138/AvioStream.git
+cd AvioStream
 
 # Run complete end-to-end pipeline in one command
 make run-pipeline

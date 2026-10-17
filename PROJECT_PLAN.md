@@ -63,7 +63,7 @@ In NASA C-MAPSS FD001 (100 run-to-failure engines, single operating regime sea-l
 - [x] **0.3** Formulate problem statement and failure mode taxonomy.
 - [x] **0.4** Download genuine NASA C-MAPSS FD001 dataset files (`train_FD001.txt`, `test_FD001.txt`, `RUL_FD001.txt`).
 - [x] **0.5** Establish data schemas, pipeline models, and benchmarks.
-- [x] **0.6** Synchronize documentation and repository (`ronitgupta138/aviostream`).
+- [x] **0.6** Synchronize documentation and repository (`ronitgupta138/AvioStream`).
 
 ---
 
