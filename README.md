@@ -12,7 +12,7 @@
 ### **AvioStream — Closed-Loop Autonomous Predictive Maintenance Platform**
 *Hybrid Enterprise Telemetry Ingestion, Dual-Stage Machine Learning & Deterministic CMMS Work-Order Dispatch*
 
-[![GitHub Stars](https://badgen.net/github/stars/ronitgupta138/AvioStream?icon=github&color=0891b2)](https://github.com/ronitgupta138/AvioStream/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/ronitgupta138/AvioStream?style=flat-square&logo=github&color=0891b2)](https://github.com/ronitgupta138/AvioStream/stargazers)
 [![Java 21](https://img.shields.io/badge/Java-21%20LTS%20Loom-0891b2?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![Throughput](https://img.shields.io/badge/Throughput-48k%20msgs%2Fs-10b981?style=flat-square)](https://github.com/ronitgupta138/AvioStream)
 [![ONNX Runtime](https://img.shields.io/badge/ONNX%20Edge-0.014ms-0891b2?style=flat-square&logo=onnx&logoColor=white)](https://onnxruntime.ai/)
