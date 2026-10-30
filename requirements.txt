@@ -1,5 +1,5 @@
 # AvioStream Enterprise Dependencies
-numpy>=1.26.0
+numpy>=2.5.4
 scipy>=1.12.0
 pandas>=2.2.0
 scikit-learn>=1.4.0
