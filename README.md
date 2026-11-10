@@ -261,3 +261,9 @@ Made with ⚡ by **Ronit Gupta**
 *Systems & High-Concurrency Backend Engineer*
 
 </div>
+## MLflow & ONNX Edge Runtime
+
+**0.014ms** telemetry processing latency
+**Dual ML**: Isolation Forest + LightGBM predictive maintenance
+**Java 21 Loom** virtual threads: >48k msgs/s throughput
+**Streamlit** digital twin command center
